@@ -6,35 +6,32 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @description
  * @autuor
- * @Date 2019-03-22 10:20
+ * @Date 2019-03-27 10:11
  */
 @Data
 @Entity
-@Table(name = "tb_user")
-public class User implements Serializable {
+@Table(name = "tb_project")
+public class Project {
 
     @Id
     @GeneratedValue
-    private Long id;
-    private String userName;
-    private String password;
-    private Integer active;
-    private Date lastLoginTime;
+    private String ID;
+
+    private String projectName;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(updatable = false)
     @CreationTimestamp
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date createTime;
+    public Date createTime;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date updateTime;
+    public Date updateTime;
 }
